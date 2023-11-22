@@ -1,52 +1,46 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
-import ProductForm from './ProductForm'; // Assuming ProductForm is a component you have
-// import { handleSave, editProduct } from './YourApi'; // Assuming these functions are somewhere in your code
+import { useParams } from 'react-router-dom';
+import ProductForm from './ProductForm'; 
+import './Products.css';
+// import { saveProduct, fetchProducts, editProduct } from './api/products';
 
 const Products = ({ addToOrder }) => {
   const { id } = useParams();
-  const [product, setProduct] = useState({});
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [products, setProducts] = useState([]); // Assuming you have a products state
 
   useEffect(() => {
-    const getProduct = async () => {
+    const fetchProducts = async () => {
       setLoading(true);
-      const response = await fetch(`http://localhost:9292/products/${id}`);
+      const response = await fetch('/api/products');
       const data = await response.json();
-      setProduct(data);
+      setProducts(data);
       setLoading(false);
     };
 
-    getProduct();
+    fetchProducts();
   }, [id]);
 
-  // Assuming addToOrder is a function passed from the parent component
-  const handleAddToOrder = () => {
+  const handleAddToOrder = (product) => {
     addToOrder(product);
   };
 
-  // Assuming this function is for saving a product, replace with your actual implementation
   const handleSave = async (product) => {
-    // Call API to add/update product
+    // Assuming you have an API function to save the product
+    // await saveProduct(product);
+    // Fetch the updated products
+    // fetchProducts();
   };
 
-  // Assuming this is for editing a product, replace with your actual implementation
-  const editProduct = (product) => {
-    // Some logic for editing
+  const editProductItem = async (product) => {
+    // Assuming you have an API function to edit the product
+    // await editProduct(product);
+    // Fetch the updated products
+    // fetchProducts();
   };
 
-  const ShowProduct = () => {
+  const ShowProducts = () => {
     return (
-      <>
-        {/* Your product display code */}
-      </>
-    );
-  };
-
-  return (
-    <div>
-      <ProductForm onSave={handleSave} />
       <table>
         <thead>
           <tr>
@@ -57,20 +51,30 @@ const Products = ({ addToOrder }) => {
           </tr>
         </thead>
         <tbody>
-          {products.map((p) => (
-            <tr key={p.id}>
-              <td>{p.name}</td>
-              <td>{p.price}</td>
-              <td>{p.quantity}</td>
+          {products.map((product) => (
+            <tr key={product.id}>
+              <td>{product.name}</td>
+              <td>{product.price}</td>
+              <td>{product.quantity}</td>
               <td>
-                <button onClick={() => editProduct(p)}> Edit </button>
+                <button onClick={() => editProductItem(product)}>Edit</button>
+                <button onClick={() => handleAddToOrder(product)}>
+                  Add to Order
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+    );
+  };
+
+  return (
+    <div>
+      <ProductForm onSave={handleSave} />
+      {loading ? <div>Loading...</div> : <ShowProducts />}
     </div>
   );
-}
+};
 
 export default Products;

@@ -7,7 +7,7 @@
   .l-image{
     flex: none;
     flex-grow: 0;
-    height: 120%;
+    height: 80%;
     width: 50%;
     /* object-fit: cover; */
     /* border: 2px solid black; */
@@ -32,7 +32,7 @@
   
   
   #loginBox{
-    /* border: 1px solid red; */
+    
     margin-top: 70px;
     margin-left: 30%;
     margin-right: 30%;
@@ -40,7 +40,7 @@
   }
   
   #input{
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(235, 215, 215, 0.08);
     border: 1px solid rgba(0, 0, 0, 0.4);
     border-radius: 10px;
     margin-top: 7px;

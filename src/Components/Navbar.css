@@ -1,0 +1,27 @@
+nav {
+    background-color: none
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 50;
+    margin: 20;
+    display: flex;
+  }
+  
+  li {
+    margin-right: 20px; /* Adjust the space between list items */
+  }
+  
+  a {
+    text-decoration: none;
+    color: black; /* Set the text color */
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: color 0.3s ease; /* Smooth transition for color change */
+  }
+  
+  a:hover {
+    color: #4135ec; /* Change the color on hover */
+  }
+  

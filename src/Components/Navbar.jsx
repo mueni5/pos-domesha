@@ -1,12 +1,17 @@
+import React from 'react';
+import './Navbar.css';
+
 function Navbar() {
     return (
       <nav>
         <ul>
-          <li><a href="/bar">Bar Section</a></li>
-          <li><a href="/kitchen">Food/Kitchen</a></li>
-          <li><a href="/inventory">Inventory</a></li>
-          <li><a href="/payments">Payments</a></li>
-          <li><a href="/orders">Orders</a></li>
+          <li><a href="/orders">Order Section</a></li>
+          <li><a href="/bar">Food/Drinks</a></li>
+          <li><a href="/Products">Products</a></li>
+          <li><a href="admin">Admin</a></li>
+          <li><a href="login">LogIn</a></li>
+          <li><a href="signup">SignUp</a></li>
+          
         </ul>
       </nav>
     );
