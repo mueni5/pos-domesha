@@ -10,9 +10,16 @@ import Orders from './Components/Orders';
 function App() {
   return (
     <Router>
-      <Navbar/>
-      <Header />
       <Routes>
+        <Route
+          path="/"
+          element={
+            <main className="text-gray-400 bg-gray-900 body-font">
+              <Navbar />
+              <Header />
+            </main>
+          }
+        />
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/products" element={<Products />} />
