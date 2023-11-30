@@ -1,25 +1,33 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Orders = () => {
-
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
     fetchOrders();
   }, []);
 
-  const fetchOrders = async () => {
-    const res = await fetch('/api/orders');
-    const data = await res.json();
-    setOrders(data);
-  }
+  // Dummy data for orders
+  const dummyOrders = [
+    { id: 1, total: 25.99 },
+    { id: 2, total: 15.5 },
+    { id: 3, total: 32.0 },
+    
+  ];
+
+  const fetchOrders = () => {
+    // Simulate fetching orders from the API
+    setOrders(dummyOrders);
+  };
 
   const handleProcess = async (orderId) => {
-    // Call API to mark order as processed
+    // Simulate calling API to mark order as processed
+    console.log(`Order ${orderId} processed.`);
   };
 
   const handleConvertToCredit = async (orderId) => {
-    // Call API to convert cash order to credit 
+    // Simulate calling API to convert cash order to credit
+    console.log(`Order ${orderId} converted to credit.`);
   };
 
   return (
@@ -33,17 +41,13 @@ const Orders = () => {
           </tr>
         </thead>
         <tbody>
-          {orders.map(o => (
+          {orders.map((o) => (
             <tr key={o.id}>
               <td>{o.id}</td>
               <td>{o.total}</td>
               <td>
-                <button onClick={() => handleProcess(o.id)}>
-                  Process
-                </button>
-                <button onClick={() => handleConvertToCredit(o.id)}>
-                  Credit
-                </button>
+                <button onClick={() => handleProcess(o.id)}>Process</button>
+                <button onClick={() => handleConvertToCredit(o.id)}>Credit</button>
               </td>
             </tr>
           ))}
@@ -51,6 +55,6 @@ const Orders = () => {
       </table>
     </div>
   );
-}
+};
 
 export default Orders;

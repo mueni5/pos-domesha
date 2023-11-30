@@ -35,14 +35,15 @@ const ProductForm = ({ onSave, product }) => {
         onChange={(e) => setName(e.target.value)}
       />
 
-      <textarea
+      <input
+        type="text"
         placeholder="Description"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
 
       <input
-        type="text" // Change type to "text"
+        type="text" 
         placeholder="Price"
         value={price}
         onChange={(e) => setPrice(e.target.value)}

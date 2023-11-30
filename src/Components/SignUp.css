@@ -2,26 +2,26 @@
     display: flex;
     flex-direction: row;
     height: 70vh;
+    padding: 1px
 }
 
-.s-image{
-    flex: none;
-    flex-grow: 0;
-    height: 100%;
-    width: 40%;
-    /* border: 2px solid red; */
-    /* object-fit: cover; */
-}
+.s-image {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 150px;
+    padding: 40px;
+  }
+
 
 .container{
     flex: none;
     flex-grow: 0;
-    height: 100%;
+    height: 125%;
     width: 50%;
     /* border: 2px solid black; */
 }
 
-#shopName{
+#domesha{
     text-align: center;
     margin-top: 20%;
   }

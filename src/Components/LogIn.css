@@ -4,13 +4,11 @@
     height: 70vh;
   }
   
-  .l-image{
-    flex: none;
-    flex-grow: 0;
-    height: 80%;
-    width: 50%;
-    /* object-fit: cover; */
-    /* border: 2px solid black; */
+  .s-image {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 150px;
+    padding: 80px;
   }
   
   .container{
@@ -21,7 +19,7 @@
     /* border: 2px solid black; */
   }
   
-  #wetto{
+  #domesha{
     text-align: center;
     margin-top: 20%;
   }

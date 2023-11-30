@@ -57,7 +57,7 @@ function LogIn() {
           Don't have an account? <NavLink to = "/signup">Sign Up</NavLink>
         </p>
       </div>
-      <img className='s-image' src="/Toast glass.jpeg" alt="glass"/>
+      <img className='s-image' src="/on the rocks.png" alt="glass"/>
         </div>
     
   );
