@@ -13,8 +13,8 @@ const ProductForm = ({ onSave, product }) => {
     const productData = {
       name,
       description,
-      price: parseFloat(price), // Convert to number
-      quantity: parseInt(quantity, 10), // Convert to integer
+      price: parseFloat(price), 
+      quantity: parseInt(quantity, 10), 
     };
 
     onSave(productData);
@@ -50,7 +50,7 @@ const ProductForm = ({ onSave, product }) => {
       />
 
       <input
-        type="text" // Change type to "text"
+        type="text" 
         placeholder="Quantity"
         value={quantity}
         onChange={(e) => setQuantity(e.target.value)}

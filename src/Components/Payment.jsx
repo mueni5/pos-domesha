@@ -1,34 +1,36 @@
 import React, { useState, useEffect } from "react";
 import "./Payment.css";
-
+import { TransactionRequest } from "./Transaction";
 
 export default function PaymentForm(props) {
-  const [staffId, setStaffId] = useState(123); // Replace with actual logic to get staff id
-  const [given, setGiven] = useState(50);
+  const [cashierId, setcashierId] = useState(12); 
+  const [given, setGiven] = useState(75);
   const [change, setChange] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    // In a real-world scenario, you might fetch staff id from the server
+    // In a real-world scenario, fetch staff id from the server
     // For demonstration purposes, using a dummy value
-    setStaffId(123);
+    setcashierId(12);
   }, []);
 
   const onClickSubmit = () => {
     setIsSubmitting(true);
 
-    const transaction = {
-      staffId: staffId,
-      amountGiven: given,
-      // Other transaction details as needed
-    };
+    const transaction = new TransactionRequest();
+    transaction.cashier_id = cashierId;
+    transaction.paid = given;
+    transaction.total = calculateTotal(); // Calculate the total bill
+    transaction.change = calculateChange(transaction.paid, transaction.total);
+    transaction.payment_type = "Visa"; 
+    transaction.comment = "Recieved"; 
 
-    // Simulating API call with a delay
+    
     simulateApiCall(transaction)
       .then(() => {
         // Assuming you get a response from the server
         console.log("Transaction successful!");
-        setChange(calculateChange(transaction.amountGiven));
+        setChange(transaction.change);
         setIsSubmitting(false);
       })
       .catch((err) => {
@@ -38,9 +40,12 @@ export default function PaymentForm(props) {
       });
   };
 
-  const calculateChange = (amountGiven) => {
+  const calculateTotal = () => {
+    return 75;
+  };
+
+  const calculateChange = (amountGiven, totalAmount) => {
     // Simulating the calculation of change
-    const totalAmount = 75; // Replace with the actual total amount
     return amountGiven - totalAmount;
   };
 
@@ -48,7 +53,7 @@ export default function PaymentForm(props) {
     // Simulating an API call with a delay using Promise
     return new Promise((resolve) => {
       setTimeout(() => {
-        // Resolve after 2 seconds (simulating the API call)
+        
         resolve();
       }, 2000);
     });
@@ -57,10 +62,19 @@ export default function PaymentForm(props) {
   return (
     <div>
       <div>
-        <strong>Staff ID:</strong> {staffId}
+        <strong>Cashier ID:</strong> {cashierId}
+      </div>
+      <div>
+        <strong>Total Bill:</strong> ${calculateTotal()}
       </div>
       <div>
         <strong>Amount Given:</strong> ${given}
+      </div>
+      <div>
+        <strong>Payment Method:</strong> Visa card
+      </div>
+      <div>
+        <strong>Comments:</strong> Payment received 
       </div>
       {isSubmitting && <div>Submitting...</div>}
       {change !== null && (
