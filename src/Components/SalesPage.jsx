@@ -1,6 +1,8 @@
+// SalesPage.jsx
 import React, { useState, useEffect } from 'react';
 import Payment from './Payment';
 import { Link } from 'react-router-dom';
+import Cashier from './Cashier'; 
 
 function SalesPage() {
   const [orderLines, setOrderLines] = useState([]);
@@ -16,7 +18,6 @@ function SalesPage() {
   ];
 
   useEffect(() => {
-    // Simulate updating state with dummy data
     setOrderLines(dummyOrders);
 
     // Simulate calculating tax and total price
@@ -28,7 +29,6 @@ function SalesPage() {
   }, []);
 
   const removeOrder = (item) => {
-    // Logic to filter and set orders
     const updatedOrders = orderLines.filter((order) => order.id !== item.id);
     setOrderLines(updatedOrders);
   };
