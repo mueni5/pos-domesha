@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Orders.css';
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchOrders();
@@ -12,7 +15,6 @@ const Orders = () => {
     { id: 1, total: 25.99 },
     { id: 2, total: 15.5 },
     { id: 3, total: 32.0 },
-    
   ];
 
   const fetchOrders = () => {
@@ -23,11 +25,15 @@ const Orders = () => {
   const handleProcess = async (orderId) => {
     // Simulate calling API to mark order as processed
     console.log(`Order ${orderId} processed.`);
+    // Navigate to the payment section after processing
+    navigate('/sales');
   };
 
   const handleConvertToCredit = async (orderId) => {
     // Simulate calling API to convert cash order to credit
     console.log(`Order ${orderId} converted to credit.`);
+    // Navigate to the admin section after converting to credit
+    navigate('/admin');
   };
 
   return (
