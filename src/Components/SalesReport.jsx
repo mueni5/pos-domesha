@@ -1,20 +1,23 @@
-
 import { useState, useEffect } from 'react';
-import { BarChart, Bar, XAxis, YAxis } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 
 const SalesReport = () => {
-
-  const [report, setReport] = useState({});
+  const [report, setReport] = useState({
+    data: [
+      { name: 'January', revenue: 1500 },
+      { name: 'February', revenue: 2200 },
+      { name: 'March', revenue: 1800 },
+      { name: 'April', revenue: 2800 },
+      { name: 'May', revenue: 3200 },
+      { name: 'June', revenue: 2100 },
+    ],
+  });
 
   useEffect(() => {
-    // Call API to get sales report data
-    const fetchReport = async () => {
-      const response = await fetch('/api/sales/report');
-      const data = await response.json();
-      setReport(data);
-    };  
-    fetchReport();
-  }, []);
+    // Simulate API call to get sales report data
+    // For demonstration purposes, using dummy data directly in state
+    // In a real scenario, you would fetch data from an API endpoint
+  }, []); // No dependencies to prevent infinite loop (componentDidMount)
 
   return (
     <div>
@@ -23,10 +26,12 @@ const SalesReport = () => {
       <BarChart width={600} height={400} data={report.data}>
         <XAxis dataKey="name" />
         <YAxis />
+        <Tooltip />
+        <Legend />
         <Bar dataKey="revenue" fill="#8884d8" />
       </BarChart>
     </div>
   );
-}
+};
 
 export default SalesReport;
