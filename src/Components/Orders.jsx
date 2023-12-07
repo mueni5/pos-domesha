@@ -36,8 +36,15 @@ const Orders = () => {
     navigate('/admin');
   };
 
+  const addToOrder = () => {
+    // Simulate adding an item to the order
+    const newItem = { id: orders.length + 1, total: Math.random() * 50 };
+    setOrders([...orders, newItem]);
+  };
+
   return (
     <div>
+      <button onClick={addToOrder}>Add to Order</button>
       <table>
         <thead>
           <tr>

@@ -88,7 +88,7 @@ const Admin = () => {
         <h3>Staff on Duty</h3>
         <ul>
           {/* Render staff on duty information */}
-          {staffOnDuty.map((staff) => (
+          {staffOnDuty && staffOnDuty.map((staff) => (
             <li key={staff.id}>{staff.name}</li>
           ))}
         </ul>

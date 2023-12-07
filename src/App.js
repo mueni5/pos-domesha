@@ -3,15 +3,16 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import LogIn from './Components/LogIn';
 import SignUp from './Components/SignUp';
 import Menu from './Components/Menu';
-import Header from './Components/Header';
+import Home from './Components/Home';
 import Navbar from './Components/Navbar';
 import Orders from './Components/Orders';
 import Footer from './Components/Footer';
 import SalesPage from './Components/SalesPage';
-import Admin from './Components/Admin';
+import SalesReport from './Components/SalesReport';
 import Cashier from './Components/Cashier';
 import Waiter from './Components/Waiter';
-import Dashboard from './Components/Dashboard';
+import Dashboard from './Components/Dashboard'; 
+import Admin from './Components/Admin';
 
 const UserRoleContext = React.createContext();
 
@@ -26,20 +27,16 @@ function App() {
         case 'cashier':
           return <Cashier />;
         case 'admin':
-          return <Admin />;
+          return <SalesReport />;
         case 'waiter':
           return <Waiter />;
         default:
-          return <div>Unauthorized Access</div>; 
+          return <div>Unauthorized Access</div>; // Fallback for unknown roles
       }
     } else {
-      return <div>Unauthorized Access</div>; 
+      return <div>Unauthorized Access</div>; // Fallback for unknown roles
     }
   };
-
-  const renderLogIn = (props) => (
-    <LogIn {...props} setUserRole={setUserRole} />
-  );
 
   return (
     <Router>
@@ -49,20 +46,21 @@ function App() {
             <Route
               path="/"
               element={
-                <main className="text-gray-400 bg-gray-900 body-font">
+                <main className="text-black-400 bg-black-900 body-font">
                   <Navbar />
-                  <Header />
+                  <Home />
                 </main>
               }
             />
             <Route path="/user" element={renderUserRoleComponent()} />
-            <Route path="/login" element={<LogIn setUserRole={setUserRole} />} />
+            <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/products" element={<Menu />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/sales" element={<SalesPage />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/dashboard" element={<Dashboard userRole={userRole} />} />
+
           </Routes>
           <Footer />
         </div>

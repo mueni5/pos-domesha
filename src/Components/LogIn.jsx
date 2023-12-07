@@ -7,7 +7,7 @@ function LogIn() {
   const [loginData, setLoginData] = useState({
     email: '',
     password: '',
-    role: '', 
+    role: '',
   });
 
   const handleChange = (e) => {
@@ -16,10 +16,10 @@ function LogIn() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  
+
     // Assuming '/dashboard' is the route that leads to the dashboard
     const dashboardRoute = '/dashboard';
-  
+
     // Redirect to the appropriate dashboard route based on the selected role
     switch (loginData.role) {
       case 'cashier':
@@ -38,10 +38,10 @@ function LogIn() {
         navigate(`${dashboardRoute}/admin`);
         break;
       default:
-        
         navigate(dashboardRoute);
     }
   };
+
   
 
   return (

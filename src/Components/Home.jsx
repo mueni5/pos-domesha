@@ -1,29 +1,27 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Header.css';
+import './Home.css';
 
-function Header() {
+function Home() {
   const navigate = useNavigate();
 
   const handleRegisterClick = () => {
-    navigate('/dashboard');
+    navigate('/login');
   };
 
   return (
-    <header>
+    <div className="home-container">
       <div>
-        <img className='s-image' src="/Cover.jpeg" alt="glass"/>
+        <img className='s-image' src="/Cover.jpeg" alt="Domesha Cover" />
       </div>
+      <div className="text-overlay"></div>
       <div>
         <h1>DOMESHA</h1>
         <p>An all-in-one platform to start, manage and grow your Business</p>
         <button onClick={handleRegisterClick}>Register</button>
       </div>
-    </header>
+    </div>
   );
 }
 
-export default Header;
-
-
-
+export default Home;
