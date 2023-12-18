@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LogIn from './Components/LogIn';
 import SignUp from './Components/SignUp';
 import Menu from './Components/Menu';
@@ -7,12 +7,13 @@ import Home from './Components/Home';
 import Navbar from './Components/Navbar';
 import Orders from './Components/Orders';
 import Footer from './Components/Footer';
-import SalesPage from './Components/SalesPage';
+// import SalesPage from './Components/SalesPage';
 import SalesReport from './Components/SalesReport';
 import Cashier from './Components/Cashier';
 import Waiter from './Components/Waiter';
-import Dashboard from './Components/Dashboard'; 
+import Dashboard from './Components/Dashboard';
 import Admin from './Components/Admin';
+import MenuItemDetails from './Components/MenuItemDetails';
 
 const UserRoleContext = React.createContext();
 
@@ -55,12 +56,11 @@ function App() {
             <Route path="/user" element={renderUserRoleComponent()} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignUp />} />
-            <Route path="/products" element={<Menu />} />
+            <Route path="/menu" element={<Menu />} />
+            <Route path="/menu/:id" element={<MenuItemDetails />} />
             <Route path="/orders" element={<Orders />} />
-            <Route path="/sales" element={<SalesPage />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/dashboard" element={<Dashboard userRole={userRole} />} />
-
           </Routes>
           <Footer />
         </div>

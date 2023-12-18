@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Orders.css';
+import SalesPage from './SalesPage';
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import SalesReport from './SalesReport';
+import SalesOverview from './SalesOverview';
+import './Admin.css'
 
 const Admin = () => {
   const [stock, setStock] = useState([]);
@@ -65,19 +66,19 @@ const Admin = () => {
 
   return (
     <div>
-      <h2>Admin Section</h2>
+  
       <section>
         <h3>Stock Available</h3>
         <table>
           {/* Render stock information */}
-          {/* ... */}
+          
         </table>
       </section>
       <section>
         <h3>Payments Received</h3>
         <table>
           {/* Render payments information */}
-          {/* ... */}
+          
         </table>
       </section>
       <section>
@@ -96,7 +97,7 @@ const Admin = () => {
       <section>
         <h3>Generate Reports</h3>
         <button onClick={fetchSalesReports}>Generate Sales Report</button>
-        {showSalesReport && <SalesReport />} {/* Conditionally render SalesReport */}
+        {showSalesReport && <SalesOverview />} {/* Use SalesOverview component */}
         <table>
           {/* Render sales reports information */}
           {/* ... */}

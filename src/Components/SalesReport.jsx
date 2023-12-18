@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts';
+import SalesPage from './SalesPage';
 
 const SalesReport = () => {
   const [report, setReport] = useState({

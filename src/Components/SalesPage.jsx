@@ -1,4 +1,3 @@
-// SalesPage.jsx
 import React, { useState, useEffect } from 'react';
 import Payment from './Payment';
 import { Link } from 'react-router-dom';
